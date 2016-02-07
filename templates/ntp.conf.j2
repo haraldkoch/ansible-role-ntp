@@ -1,8 +1,14 @@
 #{{ ansible_managed }}
 
 driftfile {{ ntp_driftfile }}
+{% for i in ntp_peer %}
+peer {{ i }}
+{% endfor %}
 {% for i in ntp_server %}
 server {{ i }}
+{% endfor %}
+{% for i in ntp_pool %}
+pool {{ i }}
 {% endfor %}
 
 {% for i in ntp_restrict %}
