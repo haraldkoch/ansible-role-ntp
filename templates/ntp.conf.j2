@@ -9,6 +9,10 @@ server {{ i }}
 {{ i }}
 {% endfor %}
 
+{% if ntp_mode7 %}
+enable mode7
+{% endif %}
+
 {% if ntp_crypto %}
 crypto
 {% endif %}

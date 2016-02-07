@@ -7,6 +7,7 @@ ntp_restrict:
   - "restrict -6 default kod notrap nomodify nopeer noquery"
   - "restrict 127.0.0.1"
 
+ntp_mode7: no
 ntp_crypto: no
 ntp_includefile: no
 ntp_keys: no

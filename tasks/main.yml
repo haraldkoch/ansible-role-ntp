@@ -14,6 +14,11 @@
   environment: "{{env}}"
   when: ansible_os_family == 'Debian'
 
+- name: Install the required packages in Arch Linux
+  pacman: name={{ item }} state=installed update_cache=yes
+  with_items: ntp_pkgs
+  when: ansible_os_family == 'Archlinux'
+
 - name: Copy the ntp.conf template file
   template: src=ntp.conf.j2 dest=/etc/ntp.conf
   notify: 
