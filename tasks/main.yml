@@ -6,7 +6,7 @@
 - name: Install the required packages
   package: name={{ item }} state=installed
   environment: "{{env}}"
-  with_items: ntp_pkgs
+  with_items: "{{ ntp_pkgs }}"
 
 - name: create NTP cache folder
   file: dest={{ntp_leapfile | dirname}} mode=755 state=directory
