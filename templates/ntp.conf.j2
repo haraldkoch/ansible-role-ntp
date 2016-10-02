@@ -5,10 +5,10 @@ driftfile {{ ntp_driftfile }}
 peer {{ i }}
 {% endfor %}
 {% for i in ntp_server %}
-server {{ i }}
+server {{ i }} iburst
 {% endfor %}
 {% for i in ntp_pool %}
-pool {{ i }}
+pool {{ i }} iburst
 {% endfor %}
 
 {% for i in ntp_restrict %}
