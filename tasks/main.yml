@@ -10,11 +10,11 @@
 
 - name: create NTP cache folder
   file: dest={{ntp_leapfile | dirname}} mode=755 state=directory
-  when: ntp_leapfile is defined
+  when: ntp_leapfile
 
 - name: Fetch leap second information
   get_url: url=https://www.ietf.org/timezones/data/leap-seconds.list dest={{ntp_leapfile}} force=yes
-  when: ntp_leapfile is defined
+  when: ntp_leapfile
   notify:
    - restart ntp
 
