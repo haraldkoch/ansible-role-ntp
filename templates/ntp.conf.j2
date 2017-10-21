@@ -59,6 +59,6 @@ broadcastclient
 multicastclient {{ ntp_multicastclient }}
 {% endif %}   
 
-{% if ntp_leapfile %}
+{% if ntp_leapfile is defined %}
 leapfile {{ ntp_leapfile }}
 {% endif %}

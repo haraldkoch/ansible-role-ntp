@@ -1,7 +1,6 @@
 ---
 
 ntp_driftfile: /var/lib/ntp/drift
-ntp_leapfile: no
 ntp_peer: []
 ntp_server: [0.ubuntu.pool.ntp.org, 1.ubuntu.pool.ntp.org]
 ntp_pool: []
