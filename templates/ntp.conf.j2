@@ -4,6 +4,11 @@ driftfile {{ ntp_driftfile }}
 {% for i in ntp_peer %}
 peer {{ i }}
 {% endfor %}
+{% if ansible_virtualization_role == "guest" %}
+# de-emphasize the local clock in VM guests to help with suspend
+server 127.127.1.0
+fudge 127.127.1.0 stratum 10
+{% endif %}
 {% for i in ntp_server %}
 server {{ i }} iburst
 {% endfor %}
