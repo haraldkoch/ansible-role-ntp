@@ -4,9 +4,7 @@
   include_vars: "{{ ansible_os_family }}.yml"
 
 - name: Install the required packages
-  package: name={{ item }} state=installed
-  environment: "{{env}}"
-  with_items: "{{ ntp_pkgs }}"
+  package: name={{ ntp_pkgs }} state=installed
 
 - name: create NTP cache folder
   file: dest={{ntp_leapfile | dirname}} mode=755 state=directory
